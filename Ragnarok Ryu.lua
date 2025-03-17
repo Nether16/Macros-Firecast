@@ -30,10 +30,11 @@ if escolha >= 1 and escolha <= #ataques then
         energia = ataque.custo_base + custoNivel
         local DT = tonumber(inputQuery("DT"))
         for i = 1, 4 do
-            local atk = roll("1d20 + " .. Combate)
+            local rolagem = roll("1d20 )
+            local atk = rolagem + Combate
             local crit = 1
             if atk >= DT then
-                if (i == 4 or atk == 20) then crit = 2 end
+                if (i == 4 or rolagem == 20) then crit = 2 end
                 send("Dano: " .. ((ataque.dano_base + danoNivel + Forca + bonus + arma) * crit))
             end
         end
